@@ -6,33 +6,38 @@
 
 html, body {
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   margin: 0;
+  padding: 0;
 }
 
 body {
   font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', cursive, sans-serif;
-  min-height: 100vh;
-  overflow: hidden;
-  touch-action: none;
   -webkit-user-select: none;
   user-select: none;
+  touch-action: none;
+}
+
+/* Viewport wrapper centers the fixed-size game canvas */
+#viewport {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  overflow: hidden;
 }
 
 .game-container {
-  width: 100vw;
-  height: calc(100vw * (558 / 930)); /* Maintain 930×558 aspect ratio */
-  max-width: 930px;
-  max-height: 558px;
+  width: 930px;
+  height: 558px;
   background: white;
   border-radius: 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  transform-origin: top left; /* JS will set transform scale */
 }
 
 header {
@@ -258,61 +263,4 @@ h1 {
   font-size: 3.5rem;
 }
 
-/* Tablet landscape optimizations */
-@media screen and (orientation: landscape) and (max-width: 1024px) {
-  h1 {
-    font-size: 2rem;
-  }
-  
-  .score {
-    font-size: 1.5rem;
-  }
-  
-  .score strong {
-    font-size: 1.8rem;
-  }
-  
-  .shape {
-    width: 100px;
-    height: 100px;
-    font-size: 80px;
-  }
-  
-  .zone-outline {
-    width: 100px;
-    height: 100px;
-  }
-}
-
-/* Touch device optimizations */
-@media (hover: none) and (pointer: coarse) {
-  .shape {
-    touch-action: none;
-  }
-}
-
-/* Adjust font sizes and layout for smaller screens */
-@media screen and (max-width: 930px) {
-  h1 {
-    font-size: 1.8rem;
-  }
-
-  .score {
-    font-size: 1.2rem;
-  }
-
-  .score strong {
-    font-size: 1.5rem;
-  }
-
-  .shape {
-    width: 80px;
-    height: 80px;
-    font-size: 60px;
-  }
-
-  .zone-outline {
-    width: 80px;
-    height: 80px;
-  }
-}
+/* No media queries: scaling is controlled by JS to preserve a 930×558 canvas */

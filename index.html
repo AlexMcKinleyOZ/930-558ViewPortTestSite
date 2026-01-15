@@ -3,16 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta
-      name="viewport"
-      content="width=930, height=558, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Shape Match Game 🎮</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="manifest" href="manifest.json" />
   </head>
   <body>
-    <div class="game-container">
+    <div id="viewport">
+      <div class="game-container">
       <header>
         <h1>🌟 Shape Match Game 🌟</h1>
         <div class="score-board">
@@ -56,6 +54,7 @@
       <div class="feedback" id="feedback"></div>
     </div>
 
+    <script src="scale.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
