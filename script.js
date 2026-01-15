@@ -208,6 +208,7 @@ function handleTouchEnd(e) {
       draggedElement.classList.add('matched');
       draggedElement.setAttribute('draggable', 'false');
       dropZone.classList.add('matched');
+        dropZone.style.display = 'none';
       matchedShapes.add(shapeType);
       
       score += 10;
@@ -234,6 +235,7 @@ function handleTouchEnd(e) {
 resetBtn.addEventListener('click', () => {
   showFeedback('New Game! 🎮');
   setTimeout(initGame, 500);
+    dropZones.forEach(z => z.style.display = 'flex');
 });
 
 // Initialize on load
