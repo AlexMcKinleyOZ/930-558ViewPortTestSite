@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, scrollable=yes"
+    />
     <title>Shape Match Game 🎮</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="manifest" href="manifest.json" />
@@ -49,6 +52,57 @@
           </div>
           <div class="shape star" draggable="true" data-shape="star">★</div>
         </div>
+      </div>
+      <div class="scrollable-area">
+        <h2>🎯 Game Instructions</h2>
+        <p>Drag and drop the shapes to their matching zones to score points!</p>
+
+        <h3>📊 Scoring System</h3>
+        <ul>
+          <li>Circle: 10 points</li>
+          <li>Square: 15 points</li>
+          <li>Triangle: 20 points</li>
+          <li>Star: 25 points</li>
+        </ul>
+
+        <h3>🏆 Tips for High Scores</h3>
+        <p>
+          Match shapes quickly for bonus points. The faster you complete each
+          match, the higher your score multiplier!
+        </p>
+
+        <h3>📱 Viewport Scaling Demo</h3>
+        <p>
+          This game uses advanced viewport scaling to work perfectly on all
+          screen sizes without media queries. The content maintains its
+          proportions while allowing vertical scrolling for additional content
+          like this section.
+        </p>
+
+        <h3>🔧 Technical Details</h3>
+        <p>
+          The scaling is based on the screen width, maintaining the original
+          930x558 design dimensions while allowing content to extend vertically
+          and scroll naturally.
+        </p>
+
+        <div
+          style="
+            height: 200px;
+            background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+          "
+        >
+          <p style="text-align: center; font-size: 18px; color: #666">
+            Additional scrollable content area
+          </p>
+        </div>
+
+        <p>Scroll back up to continue playing the game!</p>
       </div>
 
       <div class="feedback" id="feedback"></div>

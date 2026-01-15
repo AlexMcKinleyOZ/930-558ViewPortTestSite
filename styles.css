@@ -6,6 +6,8 @@
 
 html, body {
   height: 100%;
+  width: 100dvw;
+  display: flex;
   margin: 0;
   padding: 0;
 }
@@ -19,25 +21,26 @@ body {
 
 /* Viewport wrapper centers the fixed-size game canvas */
 #viewport {
-  width: 100%;
+  width: auto;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  min-height: 100vh;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  overflow: hidden;
+  padding: 20px 0;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .game-container {
   width: 930px;
-  height: 558px;
+  min-height: 558px;
   background: white;
   border-radius: 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   flex-direction: column;
-  transform-origin: top left; /* JS will set transform scale */
+  margin: 0 auto;
+  transform-origin: top center;
 }
 
 header {
@@ -262,6 +265,22 @@ h1 {
 .feedback.win {
   background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   font-size: 3.5rem;
+}
+
+.scrollable-area {
+  flex-direction: column;
+  height: auto;
+  width: auto;
+  overflow-y: auto;
+  background: #f7fafc;
+  flex: 1;
+  display: flex;
+  gap: 30px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  margin: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* No media queries: scaling is controlled by JS to preserve a 930×558 canvas */

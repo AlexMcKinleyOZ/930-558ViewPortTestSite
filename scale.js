@@ -8,21 +8,29 @@
     if (!container || !viewport) return;
 
     const vw = window.innerWidth;
-    const vh = window.innerHeight;
-    const scale = Math.min(vw / DESIGN_W, vh / DESIGN_H);
+    // Scale based on width with some padding to prevent edge cutoff
+    const scale = Math.min(1, (vw - 40) / DESIGN_W);
 
-    // Apply scale and center the canvas inside #viewport
+    // Apply scale from top-left to avoid centering issues
     container.style.transform = `scale(${scale})`;
+    container.style.transformOrigin = 'top left';
 
-    // Use absolute positioning to center independently from document flow
+    // Use relative positioning to allow natural document flow and scrolling  
+    container.style.position = 'relative';
+    container.style.left = '0';
+    container.style.top = '0';
+    container.style.width = DESIGN_W + 'px';
+    container.style.minHeight = DESIGN_H + 'px'; // Min height, can grow
+    
+    // Manually center the scaled container
     const scaledW = DESIGN_W * scale;
-    const scaledH = DESIGN_H * scale;
-    const offsetX = Math.round(Math.max(0, (vw - scaledW) / 2));
-    const offsetY = Math.round(Math.max(0, (vh - scaledH) / 2));
+    const leftOffset = Math.max(0, (vw - scaledW) / 2);
+    container.style.marginLeft = leftOffset + 'px';
+    container.style.marginRight = 'auto';
 
-    container.style.position = 'absolute';
-    container.style.left = offsetX + 'px';
-    container.style.top = offsetY + 'px';
+    // Reset viewport padding
+    viewport.style.paddingLeft = '0';
+    viewport.style.paddingRight = '0';
 
     // expose for other scripts
     window.GAME_SCALE = scale;
