@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=930, height=558, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Shape Match Game 🎮</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="game-container">
+      <header>
+        <h1>🌟 Shape Match Game 🌟</h1>
+        <div class="score-board">
+          <span class="score">Score: <strong id="score">0</strong></span>
+          <button id="resetBtn" class="reset-btn">🔄 New Game</button>
+        </div>
+      </header>
+
+      <div class="game-area">
+        <!-- Drop zones -->
+        <div class="drop-zones">
+          <div class="drop-zone" data-shape="circle">
+            <div class="zone-label">Circle</div>
+            <div class="zone-outline circle-outline"></div>
+          </div>
+          <div class="drop-zone" data-shape="square">
+            <div class="zone-label">Square</div>
+            <div class="zone-outline square-outline"></div>
+          </div>
+          <div class="drop-zone" data-shape="triangle">
+            <div class="zone-label">Triangle</div>
+            <div class="zone-outline triangle-outline"></div>
+          </div>
+          <div class="drop-zone" data-shape="star">
+            <div class="zone-label">Star</div>
+            <div class="zone-outline star-outline"></div>
+          </div>
+        </div>
+
+        <!-- Draggable shapes -->
+        <div class="shapes-container" id="shapesContainer">
+          <div class="shape circle" draggable="true" data-shape="circle">●</div>
+          <div class="shape square" draggable="true" data-shape="square">■</div>
+          <div class="shape triangle" draggable="true" data-shape="triangle">
+            ▲
+          </div>
+          <div class="shape star" draggable="true" data-shape="star">★</div>
+        </div>
+      </div>
+
+      <div class="feedback" id="feedback"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
